@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTube - Expressive Watcher</title>
+    <meta name="description" content="Watch videos seamlessly with advanced tracking-free proxy streaming.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#0f0f0f',
+                        surface: '#272727',
+                        surfaceHover: '#3f3f3f',
+                        primary: '#ff0000',
+                        primaryHover: '#cc0000',
+                        text: '#f1f1f1',
+                        textMuted: '#aaaaaa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+    @layer base {
+        body {
+            @apply bg-background text-text antialiased font-sans;
+        }
+        
+        /* Custom Scrollbar for YouTube feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #717171;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
+        }
+    }
+    @layer components {
+        .input-field {
+            @apply w-full bg-surface border border-slate-700 rounded-lg px-4 py-3 text-text placeholder-textMuted focus:outline-none focus:ring-2 focus:ring-primary transition-all;
+        }
+        .btn-primary {
+            @apply bg-primary hover:bg-primaryHover text-white font-medium rounded-lg px-6 py-3 transition-colors flex items-center justify-center gap-2;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="utils/youtube.js"></script>
+    <script type="text/babel" src="components/Player.js"></script>
+    <script type="text/babel" src="components/VideoDetails.js"></script>
+    <script type="text/babel" src="components/History.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
